@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Legend Of Cinnamoroll</title>
+    <head th:replace="include/header.html::head"></head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/board/write.css}" />
+</head>
+<body>
+<header th:replace="include/header.html :: header"></header>
+
+<main class="content-wrapper">
+    <div class="write-container">
+        <h2 th:if="${board.bno == 0}">게시글 작성</h2>
+        <h2 th:unless="${board.bno == 0}">게시글 수정</h2>
+
+        <form id="writeForm" method="post" enctype="multipart/form-data" th:object="${board}">
+            <div class="form-group">
+                <label for="category">게시판 선택</label>
+                <select id="category" name="category" required>
+                    <option value="">게시판 선택</option>
+                    <option value="guide" th:selected="${board.category == 'guide'}">공략</option>
+                    <option value="info" th:selected="${board.category == 'info'}">정보</option>
+                    <option value="free" th:selected="${board.category == 'free'}">자유</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="title">제목</label>
+                <input type="text" th:value="${board.title}" id="title" name="title" placeholder="제목을 입력하세요" required>
+            </div>
+
+            <div class="form-group">
+                <label for="content">내용</label>
+                <textarea th:text="${board.content}" id="content" name="content" placeholder="내용을 입력하세요" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="file">파일 첨부</label>
+                <div class="file-wrapper">
+                    <input type="file" id="file" name="imageFile" accept="image/*">
+                </div>
+                <div class="preview-area">
+                    <img id="preview-img" th:style="${board.fileName != null}? 'display:inline' : 'display:none'" alt="" th:src="${board.fileName}"/>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" th:if="${board.bno == 0}" class="submit-btn">글쓰기</button>
+                <button type="submit" th:unless="${board.bno == 0}" class="edit-btn">수정하기</button>
+                <button type="reset" class="reset-btn">다시쓰기</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<script th:src="@{/js/write.js}"></script>
+<footer th:replace="include/footer.html :: footer"></footer>
+</body>
+</html>

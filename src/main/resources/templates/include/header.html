@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main/header.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main/footer.css}" />
+</head>
+
+<header th:fragment="header">
+    <div class="logo-container">
+        <img th:src="@{'/image/new-logo.png'}" alt="logo" onclick="location.href='/'">
+        <span class="site-title" onclick="location.href='/'">Legend Of Cinnamoroll</span>
+    </div>
+
+    <nav>
+        <a href="/main/info">게임소개</a>
+        <a href="/main/classInfo">클래스</a>
+        <a href="/main/preRev">사전예약</a>
+        <a href="/board/list">게시판</a>
+    </nav>
+
+    <div class="button-container">
+        <button onclick="location.href='/main/login'" sec:authorize="isAnonymous()">로그인</button>
+        <button onclick="location.href='/main/sign'" sec:authorize="isAnonymous()">회원가입</button>
+<!--        <span sec:authorize="isAuthenticated()"><span th:text="${nickname}"></span> 님</span>-->
+        <span sec:authorize="isAuthenticated()"><span th:text="${session.nickname}"></span> 님</span>
+        <button onclick="location.href='/main/logout'" sec:authorize="isAuthenticated()">로그아웃</button>
+    </div>
+</header>
+</html>
+

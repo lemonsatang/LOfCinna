@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Legend Of Cinnamoroll</title>
+    <head th:replace="include/header.html::head"></head>
+    <link rel="stylesheet" type="text/css" th:href="@{css/main/main.css}" />
+</head>
+<body>
+<header th:replace="include/header.html :: header"></header>
+
+<main>
+    <div id="imgContainer">
+        <img th:src="@{'/image/new-bg.png'}">
+    </div>
+</main>
+
+<section class="preorder-section">
+    <h2>🎁 사전예약 혜택</h2>
+    <p class="subtitle">지금 예약하고 한정 아이템을 받아보세요!</p>
+
+    <div class="reward-container">
+        <div class="reward-card">
+            <img src="/image/reward_costume.png" alt="시나모롤 코스튬">
+            <h3>✨ 한정 코스튬</h3>
+            <p>전용 테마 의상으로 특별하게!</p>
+        </div>
+        <div class="reward-card">
+            <img src="/image/reward_crystal.png" alt="크리스탈 1,000개">
+            <h3>💎 크리스탈 1,000개</h3>
+            <p>시작부터 풍성한 보상!</p>
+        </div>
+        <div class="reward-card">
+            <img src="/image/reward_pet.png" alt="구름펫 시나">
+            <h3>☁️ 구름펫 시나</h3>
+            <p>모험을 함께할 귀여운 동료</p>
+        </div>
+    </div>
+
+    <div class="preorder-button">
+        <a href="/main/preRev" class="btn-preorder">지금 사전예약하기</a>
+    </div>
+</section>
+
+<section class="char-vertical">
+    <!-- 섹션 제목과 바로가기 -->
+    <div class="section-head">
+        <h2>캐릭터 소개</h2>
+        <a class="section-link" href="/main/classInfo">바로가기</a>
+    </div>
+
+    <!-- 캐릭터 카드 -->
+    <article class="char-card" tabindex="0" aria-label="전사">
+        <div class="char-label">전사</div>
+        <div class="char-media">
+            <img src="/image/class_warrior.png" alt="전사 시나모롤" />
+        </div>
+    </article>
+
+    <article class="char-card" tabindex="0" aria-label="궁수">
+        <div class="char-label">궁수</div>
+        <div class="char-media">
+            <img src="/image/class_archer.png" alt="궁수 시나모롤" />
+        </div>
+    </article>
+
+    <article class="char-card" tabindex="0" aria-label="도적">
+        <div class="char-label">도적</div>
+        <div class="char-media">
+            <img src="/image/class_rogue.png" alt="도적 시나모롤" />
+        </div>
+    </article>
+
+    <article class="char-card" tabindex="0" aria-label="마법사">
+        <div class="char-label">마법사</div>
+        <div class="char-media">
+            <img src="/image/class_mage.png" alt="마법사 시나모롤" />
+        </div>
+    </article>
+</section>
+
+<!-- 이벤트 · 커뮤니티 : SNS 공유 배너형 -->
+<section class="sns-banner">
+    <div class="sns-banner__wrap">
+        <div class="sns-banner__left">
+            <h2 class="sns-banner__title">이벤트 · 커뮤니티</h2>
+            <p class="sns-banner__subtitle">
+                메인 이미지를 공유하고 <b>#시나클라우드</b>, <b>#사전예약</b>, <b>#빛의결정</b> 해시태그를 달아줘!
+            </p>
+
+            <ol class="sns-banner__steps" aria-label="참여 방법">
+                <li>공식 이미지 공유</li>
+                <li>해시태그 3개 등록</li>
+                <li>게시글 링크 제출</li>
+            </ol>
+
+            <div class="sns-banner__actions">
+                <a class="btn sns x" href="#" aria-label="X(트위터)로 공유하기">X(트위터)</a>
+                <a class="btn sns ig" href="#" aria-label="인스타그램으로 공유하기">인스타그램</a>
+                <button class="btn ghost" type="button">링크 복사</button>
+                <a class="btn primary" href="/main/preRev">지금 사전예약</a>
+            </div>
+        </div>
+
+        <div class="sns-banner__right">
+            <div class="reward">
+                <h3>보상</h3>
+                <ul>
+                    <li>
+                        <img src="/image/reward_goods.png" alt="" />
+                        <div><b>1등</b> 시나 굿즈 세트 (쿠션+키링) · 10명</div>
+                    </li>
+                    <li>
+                        <img src="/image/reward_crystal.png" alt="" />
+                        <div><b>2등</b> 크리스탈 1,000개 · 100명</div>
+                    </li>
+                    <li>
+                        <img src="/image/reward_potion_gold.png" alt="" />
+                        <div><b>3등</b> 고급 물약 세트, 10만 골드 · 500명</div>
+                    </li>
+                </ul>
+                <small>매주 추첨 · 중복 응모 방지</small>
+            </div>
+
+            <div class="submit">
+                <label for="postUrl">게시글 링크</label>
+                <div class="submit__row">
+                    <input id="postUrl" type="url" placeholder="https://SNS/내게시글" />
+                    <button class="btn ghost" type="button">제출</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer th:replace="include/footer.html :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Legend Of Cinnamoroll</title>
+    <head th:replace="include/header.html::head"></head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/board/detail.css}" />
+</head>
+<body>
+<header th:replace="include/header.html :: header"></header>
+
+<main>
+    <h2>
+        <span th:text="${item.title}"></span>
+        <span class="category-tag" th:text="${item.cate}"></span>
+    </h2>
+
+    <div class="post-header">
+        <span class="post-writer">작성자: <span th:text="${item.name}"></span></span>
+        <span class="post-date" th:text="${item.cdate}"></span>
+    </div>
+
+    <div class="post-content" th:text="${item.content}">
+        이곳은 게시글 내용이 들어가는 부분입니다.<br>
+        여러 줄로 작성할 수 있으며 줄바꿈과 스타일이 반영됩니다.
+    </div>
+
+    <div class="image-section" th:if="${item.fileName != null && item.fileName != ''}">
+        <img th:src="${item.fileName}" alt="참고 이미지">
+    </div>
+
+    <div class="button-group">
+        <button th:if="${item.cuser == item.id}" th:bno="${item.bno}" class="edit-btn" th:onclick="location.href='/board/edit/'+this.getAttribute('bno')">수정</button>
+        <button th:if="${item.cuser == item.id}" th:bno="${item.bno}" th:fileName="${item.fileName}" class="delete-btn" th:onclick="delBoard(this.getAttribute('bno'),this.getAttribute('fileName'))">삭제</button>
+    </div>
+
+    <!-- 댓글 영역 -->
+    <section class="comment-section">
+        <h3>댓글</h3>
+
+        <div class="comment-input">
+            <textarea id="commentText" placeholder="댓글을 입력하세요..."></textarea>
+            <button th:if="${item.id != null && item.id != ''}" id="commentSubmit">등록</button>
+            <button th:if="${item.id == null || item.id == ''}" type="button" onclick="alert('로그인 후 이용가능합니다.'); location.href='/main/login';">등록</button>
+        </div>
+
+        <div id="commentList">
+        </div>
+    </section>
+</main>
+
+<script th:src="@{/js/detail.js}"></script>
+<footer th:replace="include/footer.html :: footer"></footer>
+</body>
+</html>

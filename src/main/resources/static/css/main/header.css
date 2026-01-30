@@ -1,0 +1,133 @@
+/* 전체 레이아웃 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    padding-top: 80px; /* 고정 헤더 공간 확보 */
+    background-color: #f5f6fa;
+}
+
+/* 고정형 헤더 */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0a1a3f; /* 어두운 남색 */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 40px;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* 왼쪽 로고 + 제목 */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-container img {
+    width: 65px;
+    height: 65px;
+    margin: -7px 0px;
+    object-fit: contain;
+}
+
+.site-title {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* 중앙 메뉴 */
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+/* 기본 밑줄 숨김 상태 (중앙 기준 + 투명) */
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #1e5fff, #4da3ff); /* ✅ 변경: 파랑→하늘 그라데이션 */
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: center;
+    opacity: 0;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+/* hover 시 밑줄 중앙에서 퍼지며 fade-in */
+nav a:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+nav a:hover {
+    color: #a8c3ff; /* 밝은 남색 톤 hover */
+}
+
+/* 현재 페이지(active) 표시 */
+nav a.active {
+    color: #4da3ff;
+    font-weight: 600;
+}
+nav a.active::after {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+/* 오른쪽 버튼 영역 */
+.button-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.button-container button {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.button-container button:hover {
+    background-color: white;
+    color: #0a1a3f;
+}
+
+/* 반응형 처리 */
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    nav {
+        gap: 15px;
+    }
+}

@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f6fa;
+    color: #333;
+}
+
+/* 메인 컬러 변수 */
+:root {
+    --main-dark: #0a1a3f;
+    --main-light: #4da3ff;
+}
+
+/* 페이지 컨테이너 */
+.signup-container {
+    max-width: 450px;
+    margin: 100px auto;
+    background: white;
+    padding: 40px 50px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.signup-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--main-dark);
+    margin-bottom: 30px;
+}
+
+/* 입력 그룹 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #222;
+}
+
+input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--main-light);
+    box-shadow: 0 0 5px rgba(77, 163, 255, 0.5);
+}
+
+/* 아이디 입력 + 중복확인 버튼 */
+.id-check {
+    display: flex;
+    gap: 8px;
+}
+
+.id-check input {
+    flex: 1;
+}
+
+.id-check button {
+    background-color: var(--main-dark);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.id-check button:hover {
+    background-color: var(--main-light);
+}
+
+/* 가입/취소 버튼 */
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+.button-area button {
+    width: 45%;
+    padding: 12px 0;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-submit {
+    background-color: var(--main-dark);
+    color: white;
+}
+
+.btn-submit:hover {
+    background-color: var(--main-light);
+}
+
+.btn-cancel {
+    background-color: #ccc;
+    color: #333;
+}
+
+.btn-cancel:hover {
+    background-color: #aaa;
+    color: white;
+}

@@ -1,0 +1,90 @@
+:root {
+    --main-dark: #0a1a3f;
+    --accent: #cfa26e;
+    --text-light: #ffffff;
+}
+
+body {
+    margin: 0;
+    background-color: var(--main-dark);
+    font-family: 'Noto Sans KR', sans-serif;
+    overflow-x: hidden;
+}
+
+/* 상단 시네마틱 영역 */
+.story-visual {
+    position: relative;
+    height: 92vh;
+    background: url("/image/story0.png") center/cover no-repeat;
+    display: flex;
+    align-items: flex-end;  /* ✅ 중앙 → 아래쪽으로 변경 */
+    justify-content: center;
+    color: var(--text-light);
+    text-align: center;
+    transition: background 0.8s ease-in-out;
+    padding-bottom: 120px;  /* ✅ 글자 박스를 약간 띄워서 여백 확보 */
+}
+
+.story-text {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 30px 50px;
+    border-radius: 12px;
+}
+
+.story-text h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    color: var(--accent);
+}
+
+.story-text p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* 타임라인 영역 */
+.timeline {
+    position: absolute;
+    bottom: 30px;            /* 이미지 하단에서 살짝 띄움 */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background: rgba(0, 0, 0, 0.4); !* ✅ 배경 반투명 처리 *!*/
+    /*backdrop-filter: blur(6px);*/
+    padding: 10px 20px;
+    gap: 25px;
+    /*border-radius: 8px;*/
+}
+
+.timeline-item {
+    color: black;
+    padding: 8px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+    background: rgba(255, 255, 255, 0.15);  /* 살짝 밝은 배경 */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4); /* ✅ glow 효과 */
+    transform: translateY(-3px);  /* 약간 위로 떠오르는 애니메이션 */
+}
+
+.timeline-item.active {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.timeline-item::after {
+    content: "•";
+    position: absolute;
+    right: -18px;
+    top: 0;
+    color: #888;
+}
+
+.timeline-item:last-child::after {
+    content: "";
+}

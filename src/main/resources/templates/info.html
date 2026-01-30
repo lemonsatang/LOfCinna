@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Legend Of Cinnamoroll</title>
+    <head th:replace="include/header.html::head"></head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main/info.css}" />
+</head>
+<body>
+<header th:replace="include/header.html :: header"></header>
+
+<div class="story-container">
+    <div class="story-visual" id="story-visual">
+        <div class="story-text">
+            <h1 id="story-title">시나클라우드(Sinacloud)</h1>
+            <p id="story-desc">
+                푸른 하늘 너머, 구름 위에 떠 있는 왕국 ‘시나클라우드(Sinacloud)’<br>
+                이곳은 순수한 꿈과 희망의 에너지가 흐르는 천상의 대지였다.
+            </p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item active" data-index="0">시나클라우드</div>
+            <div class="timeline-item" data-index="1">그림자 폭풍</div>
+            <div class="timeline-item" data-index="2">깨어난 수호자</div>
+            <div class="timeline-item" data-index="3">빛의 결정</div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/info.js}"></script>
+<footer th:replace="include/footer.html :: footer"></footer>
+</body>
+</html>

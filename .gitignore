@@ -1,0 +1,71 @@
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Application Properties ###
+# 민감한 정보가 포함된 설정 파일 (필요시)
+application-local.properties
+application-dev.properties
+application-secret.yml
+*-secret.yml
+
+### Database ###
+*.db
+*.sqlite
+*.log
+
+### Logs ###
+logs/
+*.log
+log/
+
+### OS ###
+.DS_Store
+Thumbs.db
+
+### Gradle Wrapper (선택사항) ###
+# gradle-wrapper.jar는 현재 포함되어 있지만,
+# 팀 정책에 따라 wrapper 파일들도 제외할 수 있습니다
+# gradle/wrapper/
+
+### Build outputs ###
+*.class
+target/
+
+### 기타 ###
+.env
+*.pid

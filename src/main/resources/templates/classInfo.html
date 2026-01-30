@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Legend Of Cinnamoroll</title>
+    <head th:replace="include/header.html::head"></head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main/classInfo.css}" />
+</head>
+<body>
+<header th:replace="include/header.html :: header"></header>
+
+<div class="class-container">
+    <h1>클래스 선택</h1>
+
+    <!-- ✅ 클래스 아이콘 목록 -->
+    <div class="class-icons">
+        <div class="class-icon active" data-index="0">
+            <img src="/image/warrior_symbol.png" alt="전사">
+            <span>전사</span>
+        </div>
+        <div class="class-icon" data-index="1">
+            <img src="/image/mage_symbol.png" alt="마법사">
+            <span>마법사</span>
+        </div>
+        <div class="class-icon" data-index="2">
+            <img src="/image/archer_symbol.png" alt="궁수">
+            <span>궁수</span>
+        </div>
+        <div class="class-icon" data-index="3">
+            <img src="/image/rogue_symbol.png" alt="도적">
+            <span>도적</span>
+        </div>
+    </div>
+
+    <!-- ✅ 클래스 상세 영역 -->
+    <div class="class-detail">
+        <div class="detail-text">
+            <h2 id="class-name">전사</h2>
+            <p id="class-desc">
+                플레이 난이도: ⭐<br><br>
+                용감한 하늘의 수호자. 거대한 구름검을 들고 전장을 누비며<br>
+                어둠의 군세로부터 친구들을 지킨다.
+            </p>
+        </div>
+        <div class="detail-img">
+            <img id="class-img" src="/image/class_warrior.png" alt="워리어 이미지">
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/classInfo.js}"></script>
+<footer th:replace="include/footer.html :: footer"></footer>
+</body>
+</html>

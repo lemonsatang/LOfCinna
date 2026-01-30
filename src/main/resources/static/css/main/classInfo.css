@@ -1,0 +1,124 @@
+:root {
+    --main-dark: #0a1a3f;
+    --accent: #e6b967;
+    --text-light: #ffffff;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(to bottom right, #0a1a3f, #182b55);
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--text-light);
+
+    /* 변경됨 👇 */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.class-container {
+    flex: 1; /* 👈 본문이 남은 공간 차지 */
+    text-align: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; /* 가운데 정렬 */
+    padding-top: 60px;
+    padding-bottom: 80px; /* footer와 간격 확보 */
+}
+
+/* 제목 */
+.class-container h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+/* ✅ 아이콘 영역 */
+.class-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.class-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.class-icon img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    filter: brightness(0.7);
+}
+
+.class-icon span {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.class-icon:hover {
+    transform: scale(1.1);
+    filter: brightness(1);
+}
+
+.class-icon.active img {
+    filter: brightness(1.2);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 4px;
+}
+
+.class-icon.active span {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* ✅ 클래스 상세 정보 영역 */
+.class-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    text-align: left;
+    animation: fadeIn 0.6s ease;
+}
+
+.detail-text {
+    flex: 1;
+}
+
+.detail-text h2 {
+    font-size: 32px;
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+.detail-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #f0f0f0;
+}
+
+.detail-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.detail-img img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* 간단한 등장 애니메이션 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}

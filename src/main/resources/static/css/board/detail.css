@@ -1,0 +1,192 @@
+:root {
+    --main-dark: #0a1a3f;
+    --accent: #e14b3e;
+    --text-light: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #ffffff;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    width: 80%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 제목 + 카테고리 */
+h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--main-dark);
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category-tag {
+    background-color: var(--main-dark);
+    color: white;
+    font-size: 14px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-left: 10px;
+}
+
+/* 제목 + 작성자 */
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.post-writer {
+    color: #555;
+    font-size: 14px;
+}
+
+.post-content {
+    line-height: 1.6;
+    margin-bottom: 30px;
+    min-height: 100px;
+}
+
+/* 참고 이미지 영역 */
+.image-section {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.image-section img {
+    max-width: 50%;
+    border-radius: 8px;
+}
+
+/* 버튼 영역 */
+.button-group {
+    text-align: right;
+    margin-top: 30px;
+}
+
+.button-group button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+
+.edit-btn {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.delete-btn {
+    background-color: var(--accent);
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #ddd;
+}
+
+.delete-btn:hover {
+    background-color: #c53b31;
+}
+
+/* 댓글 섹션 */
+.comment-section {
+    margin-top: 60px;
+}
+
+.comment-section h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.comment-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.comment-input textarea {
+    resize: none;
+    height: 80px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+.comment-input button {
+    align-self: flex-end;
+    padding: 8px 18px;
+    background-color: var(--main-dark);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.comment-input button:hover {
+    background-color: #132c6a;
+}
+
+.comment-item {
+    background-color: #f9f9f9;
+    padding: 15px 18px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.comment-content {
+    margin: 0 0 8px 0;
+    word-break: break-word;
+}
+
+.comment-info {
+    display: flex;
+    justify-content: flex-end;
+    gap: 25px;
+    font-size: 13px;
+    color: #777;
+}
+
+.comment-delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background-color: transparent;
+    color: #888;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    transition: color 0.2s;
+}
+
+.comment-delete-btn:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}

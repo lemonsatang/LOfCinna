@@ -1,0 +1,138 @@
+:root {
+    --main-dark: #0a1a3f;
+    --accent: #e14b3e;
+    --text-light: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    /*background: linear-gradient(to bottom right, #0a1a3f, #1a274f);*/
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column; /* ✅ footer가 아래로 가게 수정 */
+    min-height: 100vh;
+}
+
+main {
+    flex: 1; /* ✅ footer가 항상 아래로 밀리게 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reservation-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    background-color: rgba(28,42,78, 0.9);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 왼쪽 영역 */
+.left-panel {
+    flex: 1;
+    padding: 50px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left-panel h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.left-panel p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="tel"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+.checkbox-area {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.checkbox-area input {
+    margin-right: 6px;
+    transform: scale(1.2);
+}
+
+.reserve-btn {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 0;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.reserve-btn:hover {
+    background-color: #ff5c4d;
+}
+
+/* 오른쪽 영역 */
+.right-panel {
+    flex: 1;
+    background: url("/image/new-preRev.png") center/contain no-repeat;
+    position: relative;
+    animation: sway 3s ease-in-out infinite; /* ✅ float → sway 로 변경 */
+}
+
+/* ✅ 캐릭터 좌우로 살짝 흔들리는 애니메이션 */
+@keyframes sway {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+}
+
+/* 반응형 */
+@media (max-width: 900px) {
+    .reservation-container {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+    }
+
+    .right-panel {
+        height: 300px;
+        background-size: cover;
+        animation: none; /* ✅ 모바일에선 움직임 제거 */
+    }
+
+    .left-panel {
+        padding: 30px;
+    }
+}

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mysite.lofcinna.mapper.BoardMapper">
+    <insert id="addBoard" parameterType="Board">
+        insert into board(title, content, file_name, category, cuser)
+                values (#{title}, #{content}, #{fileName}, #{category}, #{cuser})
+    </insert>
+
+    <select id="getList" resultType="Board">
+        SELECT
+            (@rownum := @rownum + 1) AS rownum,
+            a.bno,
+            a.title,
+            a.content,
+            a.category,
+            DATE_FORMAT(a.cdate, '%Y-%m-%d') AS cdate,
+            COUNT(*) OVER() AS total_count,
+            (select count(*) from comment b where b.bno = a.bno) as cmtCnt
+            FROM board a
+            , (SELECT @rownum := 0) r
+            <where>
+                <if test="keyword != null and keyword != ''">
+                    a.title LIKE CONCAT('%', #{keyword}, '%')
+                </if>
+                <if test="category != null and category != '' and category != 'all'">
+                    AND a.category = #{category}
+                </if>
+            </where>
+            ORDER BY rownum DESC
+            LIMIT #{size} OFFSET #{offset}
+    </select>
+
+    <select id="getDetail" resultType="map">
+        select a.bno
+             , a.title
+             , a.content
+             , case when a.file_name is null or a.file_name = '' then ''
+                    else concat('/images/',a.file_name) end as fileName
+             , date_format(a.cdate, '%Y-%m-%d') as cdate
+             , b.name
+             , a.cuser
+             , a.category
+             , case when a.category = 'guide' then '공략'
+                    when a.category = 'info' then '정보'
+                    when a.category = 'free' then '자유' end as cate
+        from board a
+                 left join user b
+                           on a.cuser = b.id
+        where a.bno = #{id}
+    </select>
+
+    <insert id="addComment" parameterType="Comment">
+        insert into comment(bno, content, cuser)
+            values(#{bno}, #{content}, #{cuser})
+    </insert>
+
+    <select id="getComment" resultType="Comment">
+        select cno
+             , bno
+             , content
+             , (select name from user where id = cuser)as writer
+             , cuser
+             , date_format(cdate, '%Y-%m-%d') as cdate
+        from comment
+        where bno = #{bno}
+    </select>
+
+    <delete id="delComment">
+        delete from comment
+            where cno = #{cno}
+    </delete>
+
+    <delete id="delBoardComment">
+        delete from comment
+            where bno = #{bno}
+    </delete>
+
+    <delete id="delBoard">
+        delete from board
+            where bno = #{bno}
+    </delete>
+
+    <update id="editBoard">
+        update board
+            set title = #{title},
+                content = #{content},
+                category = #{category},
+                mdate = CURRENT_TIMESTAMP
+                <if test="fileName != null">
+                    , file_name = #{fileName}
+                </if>
+            where bno = #{bno}
+    </update>
+</mapper>
