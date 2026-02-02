@@ -28,13 +28,43 @@
 <td>
 
 ### 로그인
-<img src="./docs/로그인.gif" alt="회원가입" width="100%">
+<img src="./docs/로그인.gif" alt="로그인" width="100%">
 
 </td>
 <td>
 
 ### 게임소개
-<img src="./docs/게임소개.gif" alt="회원가입" width="100%">
+<img src="./docs/게임소개.gif" alt="게임소개" width="100%">
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+### 클래스
+<img src="./docs/클래스.gif" alt="클래스" width="100%">
+
+</td>
+<td>
+
+### 사전예약
+<img src="./docs/사전예약.gif" alt="사전예약" width="100%">
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+### 게시판
+<img src="./docs/게시판.gif" alt="게시판" width="100%">
+
+</td>
+<td>
+
+### 
+
 
 </td>
 </tr>
